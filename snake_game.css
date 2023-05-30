@@ -33,6 +33,22 @@ nav h1{
     justify-content: center;
     align-items: center;
 }
+.btn{
+    width: 8vw;
+    margin: 10px;
+    background-color: green;
+    color: greenyellow;
+    cursor: pointer;
+height: 5vh;
+border: 1px solid green;
+border-radius: 8px;
+}
+.btn:hover{
+
+    background-color: greenyellow;
+    color: black;
+
+}
 #canvas{
     border: 2px solid black;
 }
@@ -43,8 +59,8 @@ nav h1{
 }
 nav img {
     display: flex;
-    width: 8vw;
-    height: 8vh;
+    width: 7vw;
+    height: 7vh;
     /* border: 20px solid lightgreen; */
 
     margin: 10px;
@@ -67,6 +83,9 @@ nav img {
     padding: 10px 20px;
     background-color: greenyellow;
     color: black;
+}
+section #score{
+    font-size: 4rem;
 }
 
 .invisible{
