@@ -20,12 +20,14 @@
             <!-- <img src="download (1).jpg"  alt=""> -->
         </nav>
         <main>
-        <canvas id="canvas" width="500" height="500"></canvas>
-        <!-- <div class="diffculty-level">
-            <button id="easy"> Easy</button>
-            <button id = "medium">Medium</button>
-            <button id="hard">Hard</button>
-        </div> -->
+            <div class="diffculty-level">
+                <h3>Difficulty Levels</h3>
+                <button  class="btn" id="easy"> Easy</button>
+                <button class="btn"  id = "medium" >Medium</button>
+                <button  class="btn" id="hard">Hard</button>
+            </div>
+        <canvas id="canvas" width="450" height="450"></canvas>
+       
         <div id="score">
             <div id="current-score">0</div>
             <div id="highest-score"></div>
@@ -33,17 +35,19 @@
         </div>
 <section class=" end-screen invisible ">
             <div class=" game-over ">
-                <div class="reply">Game Over </div>
+                <div class="reply">Game Over <p>Your score is </p> </div>
+                <div id="current-score">0</div>
                 <div class="game-over-score ">
                     <div class="current"></div>
                     <div class="high"></div>
                 </div>
-
+                <div>
+                    <button id="play-again">Play Again!</button>
+                </div>
             </div>
+          
         </section>
-            <div>
-            <button id="play-again">Play Again!</button>
-        </div>
+           
     </div>
 
     <!-- <div class="footer">
