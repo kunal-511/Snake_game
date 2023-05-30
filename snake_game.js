@@ -11,7 +11,11 @@ const scoreE1 = document.getElementById("current-score")
 const highScoreE1 = document.getElementById("highest-score")
  const gameOverE1 = document.getElementById("score")
  const playAgainBtn = document.getElementById("play-again")
+  const easy = document.getElementById("easy")
+ const medium = document.getElementById("medium")
+ const hard = document.getElementById("hard")
  const element = document.querySelector(".end-screen")
+
 
 let boardColor = "greenyellow",
   headColor = "black",
@@ -216,18 +220,29 @@ element.classList.remove('invisible')
 }
 frame();
 
+easy.addEventListener("click", diffcultyOfGame)
 
+function diffcultyOfGame(){
+  fps = 1000 / 10
+}
 
+hard.addEventListener("click", diffcultyOfGame)
+
+function diffcultyOfGame(){
+  fps = 1000 / 20
+}
+
+medium.addEventListener("click", diffcultyOfGame)
+
+function diffcultyOfGame(){
+  fps = 1000 / 15
+}
 playAgainBtn.addEventListener("click", restartGame);
 
 function restartGame(){
-  snake = [
-    { x:2, y:0 },
-    { x:1, y:0 },
-    { x:0, y:0 },
-  ];
-  currentDirection = "";
-  directionsQueue = [];
+location.reload();
+
+
 
   
   gameOverE1.classList.add('invisible')
