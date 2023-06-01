@@ -11,73 +11,52 @@
 </head>
 
 <body>
-
     <div id="container">
         <nav>
-
             <img src="Screenshot 2023-05-29 170336.png" alt="" class="logo">
             <h1>Snake Mania: Navigate, Grow, and Dominate!</h1>
-            <!-- <img src="download (1).jpg"  alt=""> -->
         </nav>
         <main>
             <div class="diffculty-level">
                 <h3>Difficulty Levels</h3>
-                <button  class="btn" id="easy"> Easy</button>
-                <button class="btn"  id = "medium" >Medium</button>
-                <button  class="btn" id="hard">Hard</button>
+                <button class="btn" id="easy">Easy</button>
+                <button class="btn" id="medium">Medium</button>
+                <button class="btn" id="hard">Hard</button>
             </div>
-        <canvas id="canvas" width="450" height="450"></canvas>
-       
-        <div id="score">
-            <div id="current-score">0</div>
-            <div id="highest-score"></div>
+            <canvas id="canvas" width="450" height="450"></canvas>
 
-        </div>
-<section class=" end-screen invisible ">
-            <div class=" game-over ">
-                <div class="reply">Game Over <p>Your score is </p> </div>
-                <div id="current-score">0</div>
-                <div class="game-over-score ">
-                    <div class="current"></div>
-                    <div class="high"></div>
-                </div>
-                <div>
-                    <button id="play-again">Play Again!</button>
-                </div>
+            <div id="score">
+                <div id="current-score"></div>
+                <div id="highest-score"></div>
             </div>
-          
-        </section>
-           
-    </div>
-
-    <!-- <div class="footer">
-        <img src="download (1).jpg"  alt="">
-        <img src="download (1).jpg"  alt="">
-    </div> -->
-    <!-- <audio src="30sec-2020-06-18_-_8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3" controls></audio> -->
-
-
-
-
-    <!-- <div class="container">
-        <canvas width="400" height="400" id="cvs"></canvas>
-        <div class="score"></div>
-        <div class="high-score"></div>
-        <div class="game-over hide">
-          <div class="message">Game Over!</div>
-          <div class="game-over-score">
-            <div class="current"></div>
-            <div class="high"></div>
-          </div>
-          <div class="play-again">Play Again!</div>
+            <section class=" end-screen invisible">
+                <div class=" game-over ">
+                    <div class="reply">Game Over <p>Your Total score </p>
+                        <div class="game-over-score">
+                            <div id="current"></div>
+                            <div id="high"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="play-again">Play Again!</button>
+                    </div>
+                </div>
+            </section>
+         </div>
+     </main>
+    <section class="block">
+        <div class="up-key">
+            <button class="arrow-key" id="up">▲</button>
         </div>
-      </div> -->
-    </main>
+        <div id="keyboard">
 
+            <button class="arrow-key" id="left">◀</button>
+            <button class="arrow-key" id="down">▼</button>
+            <button class="arrow-key" id="right">▶</button>
+        </div>
+    </section>
     <script src="snake_game.js"></script>
-    <!-- <script src="game.js"></script> -->
-    <!-- <script src="index.js"></script> -->
-</body>
+  </body>
 
 
 </html>
