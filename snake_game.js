@@ -171,7 +171,7 @@ function updateScore(){
   highScoreE1.innerHTML = `🏆 ${highScore}`;
 
   current = score;
-  gameOverscore.innerHTML = `${current}`;
+  gameOverscore.innerHTML = `⭐${current}`;
 }
 
 //Hitwall
@@ -198,7 +198,7 @@ function gameOver(){
   // Updating high score and current scores 
   scoreE1.innerHTML = ` ⭐${score}`
   highScoreE1.innerHTML =  `🏆 ${highScore}`
-  gameOverscore.innerHTML = `${current}`;
+  gameOverscore.innerHTML = `⭐${current}`;
 
   gameOverE1.classList.remove("invisible")
 }
