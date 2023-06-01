@@ -2,25 +2,30 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const width = canvas.width,
   height = canvas.height;
-let fps = 1000 / 15;
+let fps = 1000 / 12;
 let gameLoop;
 let gameStarted = false;
 const squareSize = 25;
-const musicSound = new Audio('30sec-2020-06-18_-_8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3');
 const scoreE1 = document.getElementById("current-score")
 const highScoreE1 = document.getElementById("highest-score")
  const gameOverE1 = document.getElementById("score")
+ const gameOverscore = document.getElementById("current")
  const playAgainBtn = document.getElementById("play-again")
+ let upArrow = document.querySelector(".up");
+let leftArrow = document.querySelector(".left");
+let rightArrow = document.querySelector(".right");
+let downArrow = document.querySelector(".down");
   const easy = document.getElementById("easy")
  const medium = document.getElementById("medium")
  const hard = document.getElementById("hard")
  const element = document.querySelector(".end-screen")
 
-
+// Definfing game colors
 let boardColor = "greenyellow",
   headColor = "black",
   bodyColor = "green";
 
+// Directions
 let currentDirection = "";
 let directionsQueue = [];
 const directions = {
@@ -30,11 +35,13 @@ const directions = {
   DOWN: "ArrowDown",
 };
 
+// Draw board
 function drawBoard() {
   ctx.fillStyle = boardColor;
   ctx.fillRect(0, 0, width, height);
 }
 
+// Draw square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * squareSize, y * squareSize, squareSize, squareSize);
@@ -43,6 +50,7 @@ function drawSquare(x, y, color) {
   ctx.strokeRect(x * squareSize, y * squareSize, squareSize, squareSize);
 }
 
+// Snake
 let snake = [
   { x: 2, y: 0 }, // head
   { x: 1, y: 0 }, // Body
@@ -91,12 +99,12 @@ function moveSnake() {
   }
 
 if(foodEaten()){
-  // snake.unshift(top);
+
   food = createFood();
 }
 else {
   snake.pop();
-  // snake.unshift(top);
+ 
 }
 snake.unshift(top)
 }
@@ -125,7 +133,7 @@ function setDirection(event) {
     directionsQueue.push(newDirection);
   }
 }
-
+// Number of vertical/horizontal square
 const horizontalSq = width / squareSize;
 const verticalSq = height / squareSize;
 
@@ -153,28 +161,27 @@ function drawFood() {
   drawSquare(food.x, food.y, "red");
 }
 
-// function hitSelf (){
-//   const snakeBody = [...snake]
-//   const top =
-// }
-
-
-
+// score
 let score = 0;
+let current = 0;
 let highScore = localStorage.getItem("high-score") || 0;
 function updateScore(){
   score = snake.length - initialSnakeLength;
   scoreE1.innerHTML = `⭐${score}`;
   highScoreE1.innerHTML = `🏆 ${highScore}`;
+
+  current = score;
+  gameOverscore.innerHTML = `${current}`;
 }
 
+//Hitwall
 function hitWall() {
   const top = snake[0];
 
   return top.x < 0 || top.x >= horizontalSq || top.y < 0 || top.y >= verticalSq;
 }
 
-
+// HititSelf
 function hitSelf(){
   const snakeBody = [...snake]
   const head = snakeBody.shift()
@@ -182,26 +189,23 @@ function hitSelf(){
     (square) => square.x === head.x && square.y === head.y
   );
 }
+// Game over
 function gameOver(){
-  
+  // Calculate the high score
   highScore = Math.max(score, highScore)
   localStorage.setItem("high-score", highScore)
 
-  
+  // Updating high score and current scores 
   scoreE1.innerHTML = ` ⭐${score}`
   highScoreE1.innerHTML =  `🏆 ${highScore}`
-
-
-
-
-
-
+  gameOverscore.innerHTML = `${current}`;
 
   gameOverE1.classList.remove("invisible")
 }
 
+//loop
 function frame() {
-  // musicSound.play()
+  
   drawBoard();
   drawFood();
   moveSnake();
@@ -211,43 +215,67 @@ function frame() {
     clearInterval(gameLoop);
     gameOver();
 element.classList.remove('invisible')
-
+return;
   }
-  // if(hitWall){
-  //   clearInterval(gameLoop)
-  //   gameOver()
-  // }
+
 }
 frame();
 
-easy.addEventListener("click", diffcultyOfGame)
 
-function diffcultyOfGame(){
-  fps = 1000 / 10
+
+// Add event listeners to each button
+document.getElementById("up").addEventListener("click", function () {
+  setDirection({ key: "ArrowUp" });
+});
+
+document.getElementById("left").addEventListener("click", function () {
+  setDirection({ key: "ArrowLeft" });
+});
+
+document.getElementById("down").addEventListener("click", function () {
+  setDirection({ key: "ArrowDown" });
+});
+
+document.getElementById("right").addEventListener("click", function () {
+  setDirection({ key: "ArrowRight" });
+});
+
+
+
+// changing the difficulty of game to easy
+easy.addEventListener("click", setEasyDifficulty)
+
+function setEasyDifficulty(){
+  fps = 1000 / 8
 }
+// changing the difficulty of game to medium
+medium.addEventListener("click", setMediumDifficulty)
 
-hard.addEventListener("click", diffcultyOfGame)
+function setMediumDifficulty(){
+  fps = 1000 / 12
+}
+// changing the difficulty of game to hard
 
-function diffcultyOfGame(){
+hard.addEventListener("click", setHardDifficulty)
+
+function setHardDifficulty(){
   fps = 1000 / 20
 }
 
-medium.addEventListener("click", diffcultyOfGame)
 
-function diffcultyOfGame(){
-  fps = 1000 / 15
-}
+
+
+
+// Restart game
 playAgainBtn.addEventListener("click", restartGame);
-
 function restartGame(){
 location.reload();
-
-
-
-  
+  // hide the gameover screen
   gameOverE1.classList.add('invisible')
-
+// reset the gamestarted state to false
 gameStarted = false;
+
+//re-draw everything
   frame()
 }
 
