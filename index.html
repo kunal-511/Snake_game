@@ -11,52 +11,52 @@
 </head>
 
 <body>
-
     <div id="container">
         <nav>
-
             <img src="Screenshot 2023-05-29 170336.png" alt="" class="logo">
             <h1>Snake Mania: Navigate, Grow, and Dominate!</h1>
-            <!-- <img src="download (1).jpg"  alt=""> -->
         </nav>
         <main>
             <div class="diffculty-level">
                 <h3>Difficulty Levels</h3>
-                <button  class="btn" id="easy"> Easy</button>
-                <button class="btn"  id = "medium" >Medium</button>
-                <button  class="btn" id="hard">Hard</button>
+                <button class="btn" id="easy">Easy</button>
+                <button class="btn" id="medium">Medium</button>
+                <button class="btn" id="hard">Hard</button>
             </div>
-        <canvas id="canvas" width="450" height="450"></canvas>
-       
-        <div id="score">
-            <div id="current-score">0</div>
-            <div id="highest-score"></div>
+            <canvas id="canvas" width="450" height="450"></canvas>
 
+            <div id="score">
+                <div id="current-score"></div>
+                <div id="highest-score"></div>
+            </div>
+            <section class=" end-screen invisible">
+                <div class=" game-over ">
+                    <div class="reply">Game Over <p>Your Total score </p>
+                        <div class="game-over-score">
+                            <div id="current"></div>
+                            <div id="high"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="play-again">Play Again!</button>
+                    </div>
+                </div>
+            </section>
+         </div>
+     </main>
+    <section class="block">
+        <div class="up-key">
+            <button class="arrow-key" id="up">▲</button>
         </div>
-<section class=" end-screen invisible ">
-            <div class=" game-over ">
-                <div class="reply">Game Over <p>Your score is </p> </div>
-                <div id="current-score">0</div>
-                <div class="game-over-score ">
-                    <div class="current"></div>
-                    <div class="high"></div>
-                </div>
-                <div>
-                    <button id="play-again">Play Again!</button>
-                </div>
-            </div>
-          
-        </section>
-           
-    </div>
+        <div id="keyboard">
 
-    
-    </main>
-
+            <button class="arrow-key" id="left">◀</button>
+            <button class="arrow-key" id="down">▼</button>
+            <button class="arrow-key" id="right">▶</button>
+        </div>
+    </section>
     <script src="snake_game.js"></script>
-    <!-- <script src="game.js"></script> -->
-    <!-- <script src="index.js"></script> -->
-</body>
+  </body>
 
 
 </html>
