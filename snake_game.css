@@ -136,8 +136,8 @@ section #score {
   justify-content: center;
 }
 .arrow-key {
-  width: 6vw;
-  height: 4vh;
+   width: 12vw;
+  height: 7vh;
   border: 1px solid black;
   background-color: rgb(216, 214, 214);
   cursor: pointer;
